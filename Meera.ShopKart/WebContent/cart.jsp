@@ -28,16 +28,19 @@
 	}
 	
 </style>
-	
+
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
+
 </head>
-<body>
+
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">	 
+
 <div >
 <img src="images/logo.png"/>
-
-<div id="Back">  
-    <button type="button" onclick="window.location.href='/Meera.ShopKart/EditOrder.jsp'" value="Back">Back</button>
-</div>
-
 <div align="right"><form action="LogoutServlet"><input type="submit" value="Logout" ></input></form></div>
 </div>
 <br>
@@ -81,7 +84,7 @@
 	<br>
 	<div align="center">
 	
-	<form action="EditOrder.jsp" >
+	<form action="CatalogServ" method="post">
 	<input type="submit" value="Edit Order" />
 	</form>
 	
