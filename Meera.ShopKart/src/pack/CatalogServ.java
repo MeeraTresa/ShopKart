@@ -28,6 +28,8 @@ public class CatalogServ extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try(Connection con = DBConnection.getConnect()){
 			
+			
+			
 			String sql = "select * from product";
 			PreparedStatement psmt = con.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
@@ -44,7 +46,9 @@ public class CatalogServ extends HttpServlet {
 			
 			System.out.println(request.getHeader("Referer")+ "  Referrer !!!!");
 	
-			
+			System.out.println("I'm in Catalog Servlet !!");
+			System.out.println("I created the product  list : ");
+			System.out.println(list);
 		
 				
 				HttpSession s = request.getSession();

@@ -23,6 +23,8 @@ public class AddtoCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("I'm in addtoCartServlet");
 		List<Product> list = new ArrayList<Product>();
 		int finalQty=0;
 		try(Connection con = DBConnection.getConnect()){
@@ -57,9 +59,7 @@ public class AddtoCart extends HttpServlet {
 		
 	if(finalQty !=0){
 		HttpSession session = request.getSession();
-		session.setAttribute("cart", list); 
-
-		
+		session.setAttribute("cart", list); 		
 		RequestDispatcher rs= request.getRequestDispatcher("cart.jsp");
 		rs.forward(request, response);
 	}

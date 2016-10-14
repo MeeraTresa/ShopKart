@@ -27,13 +27,14 @@ public class SearchProdServlet extends HttpServlet {
 		String n = request.getParameter("p");
 		System.out.println(n+"Searching......");
 		if(n==null || n.equals("")){
-			request.getSession().removeAttribute("product");
+			request.getRequestDispatcher("Catalog.jsp").forward(request, response);
+			//request.getSession().removeAttribute("product");
 		}
-		else {
+		else 
+		{
 			try(Connection con = DBConnection.getConnect()){
 				
-				String query = "select * from product where prodname like '%"+n+"%'";
-				
+				String query = "select * from product where prodname like '%"+n+" %'";
 				PreparedStatement pstmt = con.prepareStatement(query);
 				//pstmt.setString(1,n);
 				ResultSet rs = pstmt.executeQuery();
@@ -51,7 +52,11 @@ public class SearchProdServlet extends HttpServlet {
 				con.close();
 				System.out.println("List :"+list);
 				HttpSession s = request.getSession();
+				request.getSession().removeAttribute("product");
 				s.setAttribute("product", list);
+				
+				System.out.println("I'm in Serach servlet");
+				System.out.println("I changed product list :"+list);
 				System.out.println("Proucts searched and retrieved successfully !!!!");
 				request.getRequestDispatcher("Catalog.jsp").forward(request, response);
 
@@ -62,6 +67,7 @@ public class SearchProdServlet extends HttpServlet {
 				
 				e.printStackTrace();
 			}
+			
 		}
 	}
 
