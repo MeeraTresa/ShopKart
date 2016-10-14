@@ -9,17 +9,16 @@
 <link rel="stylesheet" type="text/css" href="loginstyle.css">
 <link rel="stylesheet" type="text/css" href="bodystyle.css">
 
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
 </head>
-
-
-<body>
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">	 
 
 <div >
 <img src="images/logo.png"/>
-</div>
-
-<div id="Back">  
-    <button type="button" onclick="window.location.href='/Meera.ShopKart/index.html'" value="Back">Back</button>
 </div>
 
 
