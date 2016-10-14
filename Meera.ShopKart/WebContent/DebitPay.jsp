@@ -5,6 +5,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="bodystyle.css">
+
+<style>
+	table {
+	    font-family: arial, sans-serif;
+	    border-collapse: collapse;
+	    width: 100%;
+	}
+	
+	td, th {
+	    border: 1px solid white;
+	    text-align: center;
+	    padding: 8px;
+	}
+	
+	tr{
+	    background-color: #dddddd;
+	}
+	
+	table{
+		border:8px #000066 solid;
+	}
+</style>
 
 <script>
  
@@ -19,16 +42,48 @@
 	
 	
 </script>
+
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
+
 </head>
-<body>
-<form action = "CartServlet" method = "post"> 
-<h2>Debit Card Payment</h2>
-<br></br>
-Enter your Debit Card Details :
-Card number:<input type='text' name='card'onkeypress="return isNumberKey(event)"></input><br></br>
-CVV number:<input type='text' name='cvv'onkeypress="return isNumberKey(event)"></input><br></br>
-Valid till:<input type='text' name='valid' ></input>
-<input type = 'submit' name = 'submit' value = 'submit'>
+
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">	 
+
+<img src="images/logo.png"/>
+
+<div align="right">
+<form action="LogoutServlet">
+<input type="submit" value="Logout" />
 </form>
+</div>
+
+<div align="center" style="height:200px; width:600px; margin:0 auto;">
+
+<form action = "CartServlet" method = "post"> 
+<table>
+
+<tr>
+	<th colspan="2"><strong>Debit Card Payment</strong></th>
+</tr>
+
+<tr><td colspan="2">Enter your Debit Card Details :</td></tr>
+
+<tr><td>Card number:</td><td><input type='text' name='card'onkeypress="return isNumberKey(event)"/></td></tr>
+<tr><td>CVV number:</td><td><input type='text' name='cvv'onkeypress="return isNumberKey(event)"/></tr>
+<tr><td>Valid till:</td><td><input type='text' name='valid'/></td></tr>
+<tr><td colspan="2"><input type = 'submit' name = 'submit' value = 'submit'/></td></tr>
+</table>
+</form>
+
+<br>
+<div align="center">
+<form action="Payment.jsp"><input type = 'submit' name = 'paymethods' value = 'Choose Different Payment Mode'/></form>
+</div>
+
+</div>
 </body>
 </html>
