@@ -68,6 +68,19 @@
  	<script>
  	
  	function SearchFun() {
+		
+		  var xhttp = new XMLHttpRequest();
+ 		  var searchString=document.getElementById("searchbartext").value;
+ 		  var url="/ShopKart3.0/SearchProdServlet?p="+searchString;
+ 		  //alert(searchString + "Searching....");
+ 		  xhttp.onreadystatechange = function() {
+ 		    if (this.readyState == 4 && this.status == 200) {
+ 		     document.getElementById("outerdiv").innerHTML = this.responseText;
+ 		     
+ 		    }
+ 		  };
+ 		  xhttp.open("GET",url , true);
+ 		  xhttp.send();
  		 
  		}
  	
