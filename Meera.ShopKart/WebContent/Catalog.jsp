@@ -29,6 +29,10 @@
 	tr{
 	    background-color: #dddddd;
 	}
+	
+	#Search{
+		color:white;
+	}
 	</style> 
  
  	<script>
@@ -86,19 +90,20 @@
  	
  	</script>
   
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() { window.history.forward(); }
+</script>
 </head>
-<body>
 
-
+<body onload="noBack();" 
+	onpageshow="if (event.persisted) noBack();" onunload="">	 
 
 <br>
 <div id="outerdiv">
 
 <div >
 <img src="images/logo.png"/>
-
-<div align="left"><form action="LogoutServlet"><input type="submit" value="Back" ></input></form></div>
-
 <div align="right"><form action="LogoutServlet"><input type="submit" value="Logout" ></input></form></div>
 </div>
 
@@ -107,11 +112,12 @@
 	<%@ page import="java.io.*,java.util.*,java.sql.*"%>
 	<%@ page import="javax.servlet.http.*,javax.servlet.*" %>	
 	
-<div id="Search">
-  <h2>Search</h2>
+<div id="Search" align="center">
+  <h2>Products List</h2>
   Product Search <input type="text" id="searchbartext"/>
   <button type="button" onclick="SearchFun()" value="Search">Search</button>
 </div>
+<br><br>
 	
 <form id="Catalog" action="AddtoCart" method="post" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
   		 
