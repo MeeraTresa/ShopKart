@@ -68,21 +68,7 @@
  	<script>
  	
  	function SearchFun() {
- 		  var xhttp = new XMLHttpRequest();
- 		 // alert("Im Inside Seacrach fun");
- 		  var searchString=document.getElementById("searchbartext").value;
- 		  var url="/Meera.ShopKart/SearchProdServlet?p="+searchString;
- 		  //alert(searchString + " Searching....");
- 		  xhttp.onreadystatechange = function() {
- 		    if (this.readyState == 4 && this.status == 200) {
- 		     document.getElementById("outerdiv").innerHTML = this.responseText;
- 		     //alert ("changing");
- 		     
- 		    }
- 		  };
- 		xhttp.open("GET",url , true);
- 		  xhttp.send();
- 		 // alert("outside search fun");
+ 		 
  		}
  	
  	</script>
